@@ -1,20 +1,54 @@
+"use client";
+import Link from "next/link";
 import React from "react";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathname = usePathname();
+  const showNavbar =["/", "/generate"].includes(pathname);
   return (
+   <>{showNavbar &&
     <nav className="bg-white w-[80vw] flex justify-between absolute top-10 right-[10vw] rounded-full ">
       <div className="logo flex gap-20 items-center">
-        <img
-          className= " h-[10vh] px-4 rounded-full size-40 "
+      <Link href="/"> <img
+          className=" h-[10vh] px-4 rounded-full size-40 "
           src="https://i.pinimg.com/474x/d1/24/c4/d124c4e82f9cf80c7375b35d176bddc2.jpg"
           alt=""
-        />
+        /></Link> 
         <ul className="flex gap-10 ">
-          <li className=" hover:cursor-pointer  hover:bg-slate-100 hover:rounded-lg px-3 py-2">Template</li>
-          <li className=" hover:cursor-pointer  hover:bg-slate-100 hover:rounded-lg px-3 py-2">Marketplace</li>
-          <li className=" hover:cursor-pointer  hover:bg-slate-100 hover:rounded-lg px-3 py-2" py-3>Discover</li>
-          <li className=" hover:cursor-pointer  hover:bg-slate-100 hover:rounded-lg px-3 py-2">Pricing</li>
-          <li className=" hover:cursor-pointer  hover:bg-slate-100 hover:rounded-lg px-3 py-2">Learn</li>
+
+          <Link href="/">
+            <li className=" hover:cursor-pointer  hover:bg-slate-100 hover:rounded-lg px-3 py-2">
+              Template
+            </li>
+          </Link>
+
+          <Link href="/">
+            <li className=" hover:cursor-pointer  hover:bg-slate-100 hover:rounded-lg px-3 py-2">
+              Marketplace
+            </li>
+          </Link>
+
+          <Link href="/">
+            <li
+              className=" hover:cursor-pointer  hover:bg-slate-100 hover:rounded-lg p-3 "
+             >
+              Discover
+            </li>
+          </Link>
+
+          <Link href="/">
+            <li className=" hover:cursor-pointer  hover:bg-slate-100 hover:rounded-lg px-3 py-2">
+              Pricing
+            </li>
+          </Link>
+
+          <Link href="/">
+            <li className=" hover:cursor-pointer  hover:bg-slate-100 hover:rounded-lg px-3 py-2">
+              Learn
+            </li>
+          </Link>
+
         </ul>
       </div>
 
@@ -26,7 +60,7 @@ const Navbar = () => {
           Signup free
         </button>
       </div>
-    </nav>
+    </nav>}</> 
   );
 };
 
